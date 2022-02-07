@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: dev
+server:
+  port: 6767
+  tomcat:
+    basedir: ./
+# mybatis 配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.ethereal.springboot.model
+
+logging:
+  config: classpath:logback-spring.xml
+
