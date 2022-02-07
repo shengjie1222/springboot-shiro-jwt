@@ -20,6 +20,7 @@
 | ID    |  代码  | 名称  |
 | :---: | :---- | ---- |
 | 1  | admin | 超级管理员 |
+
 ####代码实例
 `@RequiresRoles("admin")`
 ![img_2.png](img_2.png)
@@ -28,6 +29,7 @@
 | ID    |  代码  | 名称  |
 | :---: | :---- | ---- |
 | 1  | admin | 超级管理员 |
+
 ####代码实例
 `@RequiresPermissions("admin")`
 ![img_3.png](img_3.png)
