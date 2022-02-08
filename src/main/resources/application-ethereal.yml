@@ -1,7 +1,7 @@
 spring:
   #mysql
   datasource:
-    url: jdbc:mysql://localhost:3306/shiro_test?serverTimezone=UTC
+    url: jdbc:mysql://172.20.19.73:3306/shiro_test
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -10,8 +10,8 @@ spring:
       log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   #redis
   redis:
-    host: localhost
+    host: 172.20.19.73
     port: 6379
-    database: 0
+    database: 3
     timeout: 30000
     password: '1234567'
