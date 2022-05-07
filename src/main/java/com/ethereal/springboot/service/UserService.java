@@ -17,6 +17,7 @@ import com.ethereal.springboot.model.Role;
 import com.ethereal.springboot.model.User;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserService {
-	
+
+
+	@Value("${token.refresh.interval}")
+	private int tokenRefreshInterval = 300;
+
 	@Autowired
 	private StringRedisTemplate redisTemplate;
 
@@ -47,7 +52,7 @@ public class UserService {
 		User user = userMapper.selectByUsername(username);
 		user.setSalt(salt);
 		userMapper.updateByPrimaryKeySelective(user);
-    	return JwtUtils.sign(username, salt, 3600); //生成jwt token，设置过期时间为1小时
+    	return JwtUtils.sign(username, salt, tokenRefreshInterval); //生成jwt token，设置过期时间为1小时
     }
     
     /**

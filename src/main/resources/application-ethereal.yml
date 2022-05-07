@@ -15,3 +15,6 @@ spring:
     database: 3
     timeout: 30000
     password: '1234567'
+token:
+  refresh:
+    interval: 3600

@@ -2,6 +2,7 @@ package com.ethereal.springboot.controller;
 
 import com.ethereal.springboot.common.ShiroContext;
 import com.ethereal.springboot.dto.UserDto;
+import com.ethereal.springboot.dto.UsernamePasswordParam;
 import com.ethereal.springboot.service.UserService;
 
 import org.apache.shiro.SecurityUtils;
@@ -32,7 +33,7 @@ public class LoginController {
      * @return token
      */
     @PostMapping(value = "/login")
-    public ResponseEntity<Void> login(@RequestBody UserDto loginInfo, HttpServletRequest request, HttpServletResponse response){
+    public ResponseEntity<Void> login(@RequestBody UsernamePasswordParam loginInfo, HttpServletRequest request, HttpServletResponse response){
         Subject subject = SecurityUtils.getSubject();
         try {
             UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), loginInfo.getPassword());
